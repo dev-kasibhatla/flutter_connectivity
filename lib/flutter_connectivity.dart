@@ -129,6 +129,7 @@ class FlutterConnectivity {
   late Timer _timer;
 
   void _startTimer() {
+    _checkConnectivity();
     _timer = Timer.periodic(_checkInterval, (timer) {
       _checkConnectivity();
     });
