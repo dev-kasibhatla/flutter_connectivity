@@ -21,6 +21,8 @@ enum ConnectivityStatus {
 }
 
 class FlutterConnectivity {
+  static const String _tag = '[FlutterConnectivity]';
+
   /// Simulates a network request to a server every [_checkInterval].
   Duration _checkInterval = const Duration(seconds: 3);
 
@@ -158,11 +160,11 @@ class FlutterConnectivity {
         _lastRequestTime = endTime;
         _latencies[_lastRequestTime] = endTime - startTime;
       } else {
-        _log.e('Failed request. Status code: ${response.statusCode}');
+        _log.e('$_tag Failed request. Status code: ${response.statusCode}');
         _latencies[_lastRequestTime] = -1;
       }
     } catch (e) {
-      _log.e('Failed request. $e', includeTrace: true);
+      _log.e('$_tag Failed request. $e', includeTrace: true);
       _latencies[_lastRequestTime] = -1;
     }
     _trimLatencies();
@@ -226,7 +228,7 @@ class FlutterConnectivity {
       return -1;
     }
     if (_latencies.length < 3) {
-      _log.v('latencies length < 3');
+      // _log.v('$_tag latencies length < 3');
       return _latencies[_lastRequestTime] ?? -1;
     }
 
