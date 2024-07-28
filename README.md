@@ -122,4 +122,4 @@ dart example/example.dart
 
 ## Additional information
 Report issues and help improve the package on [GitHub](https://github.com/dev-kasibhatla/flutter_connectivity/issues).
-Check API reference for more detailed information.
+Check [API reference](https://pub.dev/documentation/flutter_connectivity/latest/) for more detailed information.
