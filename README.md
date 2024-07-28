@@ -1,39 +1,118 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# flutter_connectivity
+Constantly monitors and reports changes in connection quality to a specific server or service, built in pure Dart and compatible with Dart and Flutter.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
+Unlike other packages that only check internet connectivity, this one ensures actual internet access by testing against your designated server.
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- [x] Select a server to test against (eg: example.com)
+- [x] Configure interval for testing
+- [x] Configure how many failed tests before reporting a connection loss
+- [x] Set latency thresholds for different connection qualities
+- [x] Get notified of connection quality changes in real-time
+- [x] Pause and resume monitoring
+- [x] Query connection history
+- [x] Accommodates occasional network hiccups
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+1. Install the package
+dart
+```bash
+dart pub add flutter_connectivity
+```
+flutter
+```bash
+flutter pub add flutter_connectivity
+```
+2. Import the package
+```dart
+import 'package:flutter_connectivity/flutter_connectivity.dart';
+```
+
+3. Create a new instance of `FlutterConnectivity` and start monitoring
+```dart
+// instantiate
+FlutterConnectivity connectivity = FlutterConnectivity(endpoint: 'https://example.com');
+
+// listen
+connectivity.listenToLatencyChanges((ConnectivityStatus status, int latency) {
+    print('Connection status: $status, latency: $latency');
+});
+```
+
+## Screenshot
+![Screenshot](extra/screenshot.png)
+
+## Compatibility
+Works with all Dart and Flutter (web, mobile, desktop) projects.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### Create a new instance of `FlutterConnectivity`
 
 ```dart
-const like = 'sample';
+// Modify the endpoint to your server
+FlutterConnectivity connectivity = FlutterConnectivity(endpoint: 'https://example.com');
 ```
 
-## Additional information
+### Optional: Configure the connectivity instance
+```dart
+connectivity.configure(
+    // How many failed requests before reporting a connection loss
+    allowedFailedRequests: 2,
+    
+    // How often to check the connection
+    checkInterval: const Duration(seconds: 3),
+    
+    // What kind of logs appear on your console
+    logLevel: LogLevel.error,
+);
+```
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+### Optional: Configure latency thresholds
+```dart
+// Set latency thresholds in milliseconds
+connectivity.setLatencyThresholds(
+    disconnected: 10000,
+    slow: 5000,
+    moderate: 2000,
+    fast: 1000,
+);
+```
+
+### Start the connectivity monitor
+```dart
+connectivity.listenToLatencyChanges((ConnectivityStatus status, int latency) {
+    print('Connection status: $status, latency: $latency');
+});
+```
+
+### Pause and resume monitoring
+```dart
+// Pause monitoring
+connectivity.pause();
+
+// Resume monitoring
+connectivity.resume();
+```
+
+### Get history of latencies with timestamps
+```dart
+Map<int, int> latencies = connectivity.latencyHistory;
+```
+
+### Stop monitoring
+```dart
+connectivity.dispose();
+```
+
+Check out the [example](example/example.dart) for a complete implementation. Run the example using the following command:
+```bash
+dart example/example.dart
+```
+
+
+
+## Additional information
+Report issues and help improve the package on [GitHub](https://github.com/dev-kasibhatla/flutter_connectivity).
+Check API reference for more detailed information.

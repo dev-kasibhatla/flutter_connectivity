@@ -28,6 +28,8 @@ class FlutterConnectivity {
 
   /// History of latencies from the network requests with timestamps.
   final Map<int, int> _latencies = <int, int>{};
+
+  /// Returns the history of latencies from the network requests with timestamps.
   Map<int,int> get latencyHistory => _latencies;
 
   static const int _latencyHistoryLimit = 100;
@@ -141,10 +143,13 @@ class FlutterConnectivity {
     _timer.cancel();
   }
 
+  /// Pauses monitoring of network latency.
+  /// Note that any requests still in progress will still be completed.
   void pause() {
     _timer.cancel();
   }
 
+  /// Resumes monitoring of network latency.
   void resume() {
     _startTimer();
   }
