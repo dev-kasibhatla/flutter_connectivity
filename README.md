@@ -113,7 +113,7 @@ Map<int, int> latencies = connectivity.latencyHistory;
 connectivity.dispose();
 ```
 
-Check out the [example](example/example.dart) for a complete implementation. Run the example using the following command:
+Check out the [example](https://pub.dev/packages/flutter_connectivity/example) for a complete implementation. Run the example using the following command:
 ```bash
 dart example/example.dart
 ```

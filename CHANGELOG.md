@@ -10,3 +10,6 @@ Initial release
 - Query connection history
 - Query current connection status
 - Accommodates occasional network hiccups 
+
+## 0.0.2
+- Update README.md
