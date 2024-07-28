@@ -13,6 +13,12 @@ Unlike other packages that only check internet connectivity, this one ensures ac
 - [x] Query connection history
 - [x] Accommodates occasional network hiccups
 
+Use this package when you need to:
+- monitor connection quality
+- maintain a stable connection
+- detect network issues
+- provide real-time feedback to users (eg: connection quality indicator)
+
 ## Getting started
 
 1. Install the package
