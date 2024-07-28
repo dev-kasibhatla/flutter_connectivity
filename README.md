@@ -16,11 +16,12 @@ Unlike other packages that only check internet connectivity, this one ensures ac
 ## Getting started
 
 1. Install the package
-dart
+
+Dart
 ```bash
 dart pub add flutter_connectivity
 ```
-flutter
+Flutter
 ```bash
 flutter pub add flutter_connectivity
 ```
@@ -48,14 +49,14 @@ Works with all Dart and Flutter (web, mobile, desktop) projects.
 
 ## Usage
 
-### Create a new instance of `FlutterConnectivity`
+**Create a new instance of `FlutterConnectivity`**
 
 ```dart
 // Modify the endpoint to your server
 FlutterConnectivity connectivity = FlutterConnectivity(endpoint: 'https://example.com');
 ```
 
-### Optional: Configure the connectivity instance
+**Optional: Configure the connectivity instance**
 ```dart
 connectivity.configure(
     // How many failed requests before reporting a connection loss
@@ -69,7 +70,7 @@ connectivity.configure(
 );
 ```
 
-### Optional: Configure latency thresholds
+**Optional: Configure latency thresholds**
 ```dart
 // Set latency thresholds in milliseconds
 connectivity.setLatencyThresholds(
@@ -80,14 +81,14 @@ connectivity.setLatencyThresholds(
 );
 ```
 
-### Start the connectivity monitor
+**Start the connectivity monitor**
 ```dart
 connectivity.listenToLatencyChanges((ConnectivityStatus status, int latency) {
     print('Connection status: $status, latency: $latency');
 });
 ```
 
-### Pause and resume monitoring
+**Pause and resume monitoring**
 ```dart
 // Pause monitoring
 connectivity.pause();
@@ -96,12 +97,12 @@ connectivity.pause();
 connectivity.resume();
 ```
 
-### Get history of latencies with timestamps
+**Get history of latencies with timestamps**
 ```dart
 Map<int, int> latencies = connectivity.latencyHistory;
 ```
 
-### Stop monitoring
+**Stop monitoring**
 ```dart
 connectivity.dispose();
 ```
@@ -114,5 +115,5 @@ dart example/example.dart
 
 
 ## Additional information
-Report issues and help improve the package on [GitHub](https://github.com/dev-kasibhatla/flutter_connectivity).
+Report issues and help improve the package on [GitHub](https://github.com/dev-kasibhatla/flutter_connectivity/issues).
 Check API reference for more detailed information.
