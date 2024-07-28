@@ -4,7 +4,6 @@ version: 0.0.1
 homepage: https://github.com/dev-kasibhatla/flutter_connectivity
 documentation: https://pub.dev/packages/flutter_connectivity
 issue_tracker: https://github.com/dev-kasibhatla/flutter_connectivity/issues
-publish_to: 'pub.dev'
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
