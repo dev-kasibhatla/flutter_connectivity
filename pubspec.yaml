@@ -1,6 +1,6 @@
 name: flutter_connectivity
 description: "Monitors and reports connection quality to a specific server. Ensures real internet access, not just connectivity. Pure Dart, Dart/Flutter compatible."
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/dev-kasibhatla/flutter_connectivity
 documentation: https://pub.dev/packages/flutter_connectivity
 issue_tracker: https://github.com/dev-kasibhatla/flutter_connectivity/issues
